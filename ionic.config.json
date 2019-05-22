@@ -1,0 +1,12 @@
+{
+  "name": "yourporter-weather-app",
+  "integrations": {},
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ],
+  "id": "479142c9"
+}
