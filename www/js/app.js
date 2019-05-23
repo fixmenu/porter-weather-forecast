@@ -19,10 +19,10 @@ angular.module('starter', ['ionic', 'ngCordova'])
 
     isToday = (date) => {
       var today = new Date();
-      if(date.getDate() == today.getDate()){
+      if (date.getDate() == today.getDate()) {
         return true;
       }
-      else{
+      else {
         return false;
       }
     }
@@ -34,18 +34,17 @@ angular.module('starter', ['ionic', 'ngCordova'])
 
     $scope.getDayName = function (timestamp) {
       var date = new Date(timestamp * 1000);
-      if(isToday(date)){
+      if (isToday(date)) {
         return 'TODAY';
-      }else{
+      } else {
         return days[date.getDay()];
       }
     }
 
     $scope.getTimestampAsHour = function (timestamp) {
-      var date = new Date(timestamp*1000);
-      return date.getHours() +":00";
+      var date = new Date(timestamp * 1000);
+      return date.getHours() + ":00";
     }
-
 
 
     this.$onInit = () => {
@@ -63,15 +62,17 @@ angular.module('starter', ['ionic', 'ngCordova'])
           return element.name == $scope.city.selected;
         });
         $scope.weatherInfo = {};
-        setWeatherInfo(city.data.latitude, city.data.longitude);
+        setWeatherInfo(city.name, city.data.latitude, city.data.longitude);
       }
     }
 
-    var setWeatherInfo = function (lat, long) {
+    var setWeatherInfo = function (name, lat, long) {
       var url = 'https://mighty-journey-37381.herokuapp.com/getWeatherInfo/' + lat + '/' + long;
-      //var url = 'http://localhost:8080/getWeatherInfo/' + lat + '/' + long;
       $http.get(url).success(function (data) {
         $scope.weatherInfo = data;
+        if (name != null) {
+          $scope.weatherInfo.timezone = name;
+        }
       }).error(function (error) {
         console.log("Current Weather Info Request Error");
       })
@@ -89,7 +90,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
       $scope.view = 'settingsView';
     }
 
-    $scope.openHourlyView = function (item){
+    $scope.openHourlyView = function (item) {
       $scope.selectedDateData = item;
       console.log($scope.selectedDateData);
       $scope.view = 'hourlyView';
@@ -108,7 +109,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
         function (position) {
           var lat = position.coords.latitude;
           var long = position.coords.longitude;
-          setWeatherInfo(lat, long);
+          setWeatherInfo(null, lat, long);
         }
       )
     }
@@ -143,7 +144,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
       var myplaceData = {};
       $http.get(url).success(function (data) {
         var url2 = 'https://mighty-journey-37381.herokuapp.com/getWeatherInfo/' + data.latitude + '/' + data.longitude;
-        $http.get(url2).success(function (weatherData){
+        $http.get(url2).success(function (weatherData) {
           myplaceData.name = data.name;
           myplaceData.data = weatherData;
         });
