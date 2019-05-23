@@ -1,0 +1,47 @@
+<div class="bar bar-header bar-calm" style="background-color: #4b8bf4">
+  <div class="row">
+    <h1 class="title">{{weatherInfo.timezone}}</h1>
+  </div>
+</div>
+<ion-content class="has-header has-footer" style="background-color: #4b8bf4">
+  <div class="container" align="center" style="padding-top: 50px">
+    <div>
+      <img src="../img/{{weatherInfo.hourly.data[0].icon}}@3x.png">
+      <h2 style="color: whitesmoke">{{weatherInfo.hourly.data[0].temperature.toFixed(0)}}</h2>
+      <p>{{weatherInfo.hourly.data[0].summary}}</p>
+    </div>
+    <div style="background-color: #609bf4">
+      <div class="row" style="width: 100%">
+        <div class="col col-20" ng-repeat="item in weatherInfo.hourly.data| limitTo:6">
+          <p>{{getTimestampAsHour(item.time)}}</p>
+          <img src="../img/{{item.icon}}.png">
+          <p>{{item.temperature.toFixed(0)}}°C</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col col-50">
+          <div style="background-color: #609bf4; width: 100%">
+            <p>Feels like</p>
+            <p>{{selectedDateData.humidity}}</p>
+          </div>
+          <div style="background-color: #609bf4; width: 100%">
+            <p>Lowest</p>
+            <p>{{selectedDateData.temperatureLow.toFixed(0)}}°C</p>
+          </div>
+        </div>
+        <div class="col col-50">
+          <div style="background-color: #609bf4; width: 100%">
+            <p>Humidity</p>
+            <p>{{selectedDateData.humidity}}</p>
+          </div>
+          <div style="background-color: #609bf4; width: 100%">
+            <p>Highest</p>
+            <p>{{selectedDateData.temperatureHigh.toFixed(0)}}°C</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

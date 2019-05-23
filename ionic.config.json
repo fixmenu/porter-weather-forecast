@@ -1,6 +1,8 @@
 {
   "name": "yourporter-weather-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic1",
   "watchPatterns": [
     "scss/**/*",
@@ -8,5 +10,11 @@
     "!www/lib/**/*",
     "!www/**/*.map"
   ],
-  "id": "479142c9"
+  "id": "479142c9",
+  "proxies": [
+    {
+      "path": "/",
+      "proxyUrl": "https://mighty-journey-37381.herokuapp.com"
+    }
+  ]
 }

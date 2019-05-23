@@ -1,0 +1,13 @@
+<ion-list>
+  <ion-list-header>
+    <ion-label>Name</ion-label>
+  </ion-list-header>
+  <ion-radio-group>
+      <ion-radio value="current" ng-model="city.selected">
+        Current location
+      </ion-radio>
+      <ion-radio ng-repeat="item in myPlaces" value="{{item.name}}" ng-model="city.selected">
+        {{item.name}}
+      </ion-radio>
+  </ion-radio-group>
+</ion-list>

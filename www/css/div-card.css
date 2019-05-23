@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Roboto-Regular';
+  src:  url('../fonts/Roboto-Regular.ttf') format('ttf');
+  font-weight: bold;
+}
+
+.card{
+  background-color:#007aff;
+  border-radius: 10px;
+  margin: 0px auto;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.hc{
+  background-color: #609bf4;
+  width: 150px;
+  height: 100px;
+  margin: 10px auto;
+}
+
+.bar-header {
+  border: 0px !important;
+  border-bottom-color: transparent !important;
+  background-image: none !important;
+  border-bottom: none !important;
+}
+
+p{
+  font-family: "Roboto-Regular";
+  color: whitesmoke;
+}
+
+h1{
+  font-family: "Roboto-Regular";
+  color: #6b46e5;
+}
+

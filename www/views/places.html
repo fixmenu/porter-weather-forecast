@@ -1,0 +1,27 @@
+<div class="bar bar-header bar-calm" style="background-color: whitesmoke">
+  <div class="row">
+    <h1 class="title" style="color: #0c60ee">PLACES</h1>
+    <button class="button icon-left ion-android-add" ng-click="addPlace()"
+            style="color: orangered; background-color: whitesmoke; border: none"></button>
+  </div>
+</div>
+<ion-content class="has-header has-footer" style="background-color: whitesmoke">
+  <div class="list" ng-repeat="item in myPlaces">
+    <div class="card">
+      <div class="container">
+        <div class="row">
+          <div class="col col-40">
+            <p>{{item.name.toUpperCase()}}</p>
+          </div>
+          <div class="col">
+            <div class="row">
+              <img src="../img/{{item.data.daily.data[0].icon}}@2x.png" style="margin-right: 20px">
+              <p>{{item.data.daily.data[0].temperatureHigh.toFixed(0)}}°C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</ion-content>
